@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">        
+        <p><a class="btn mt-2 float-end" href="/dashboard">Dashboard</a></p>
+        <a class="btn mt-2 float-end" href="/logout">Logout</a>
+        <h1>Edit Recipe</h1>        
+    </div>
+    <div class="container"> 
+        <form action="/edit_recipe/{{ session ['user_id'] }}" method="post">
+            <h5>Name:</h5>
+            <input type="text" name="name" id="name" value="{{recipe.name}}">
+            <h5>Description:</h5>
+            <input type="text" name="description" id="description"  value="{{recipe.description}}">
+            <h5>Instructions:</h5>
+            <input type="text" name="instructions" id="instructions"  value="{{recipe.instructions}}">
+            <p>Under 30 Minutes?</p>
+            <input type="radio" name="under_30_yes" id="under_30_yes">
+            <label for="under_30_yes">Yes</label>
+            <input type="radio" name="under_30_no" id="under_30_no">
+            <label for="under_30_no">No</label>
+            <input type="hidden" name="id" value="{{recipe.id}}">
+            <input type="submit" value="Update">
+        </form>
+    </div>         
+</body>
+</html>

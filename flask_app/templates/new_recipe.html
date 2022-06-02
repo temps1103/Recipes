@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">        
+        <p><a class="btn mt-2 float-end" href="/dashboard">Dashboard</a></p>
+        <a class="btn mt-2 float-end" href="/logout">Logout</a>
+        <h1>Add New Recipe</h1>
+    </div>
+    <div class="container"> 
+        <form action="/create/recipe" method="post">
+            <label for="name">Name: </label>
+            <input type="text" name="name" id="name">
+            <label for="description">Description: </label>
+            <input type="text" name="description" id="description">
+            <label for="instructions">Instructions: </label>
+            <input type="text" name="instructions" id="instructions">
+            <label for="date_made">Date Made On: </label>
+            <input type="date" name="date_made" id="date_made">
+            <p>Under 30 Minutes?</p>
+            <input type="radio" name="under_30_yes" id="under_30_yes">
+            <label for="under_30_yes">Yes</label>
+            <input type="radio" name="under_30_no" id="under_30_no">
+            <label for="under_30_no">No</label>
+            <input type="hidden" name="user_id" value="{{ session ['user_id'] }}">
+            <input type="submit" value="Create">            
+        </form>
+    </div>         
+</body>
+</html>
